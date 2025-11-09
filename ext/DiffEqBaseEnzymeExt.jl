@@ -9,7 +9,7 @@ module DiffEqBaseEnzymeExt
 
     function Enzyme.EnzymeRules.augmented_primal(
             config::Enzyme.EnzymeRules.RevConfigWidth{1},
-            func::Const{typeof(DiffEqBase.solve_up)}, ::Type{Duplicated{RT}}, prob,
+            func::Const{typeof(DiffEqBase.solve_up)}, ::Type{<:Union{Duplicated{RT}, DuplicatedNoNeed{RT}}}, prob,
             sensealg::Union{
                 Const{Nothing}, Const{<:DiffEqBase.AbstractSensitivityAlgorithm}},
             u0, p, args...; kwargs...) where {RT}
@@ -37,12 +37,11 @@ module DiffEqBaseEnzymeExt
     end
 
     function Enzyme.EnzymeRules.reverse(config::Enzyme.EnzymeRules.RevConfigWidth{1},
-            func::Const{typeof(DiffEqBase.solve_up)}, ::Type{Duplicated{RT}}, tape, prob,
+            func::Const{typeof(DiffEqBase.solve_up)}, ::Type{<:Union{Duplicated{RT}, DuplicatedNoNeed{RT}}}, tape, prob,
             sensealg::Union{
                 Const{Nothing}, Const{<:DiffEqBase.AbstractSensitivityAlgorithm}},
             u0, p, args...; kwargs...) where {RT}
         dres, clos = tape
-        dres = dres::RT
         dargs = clos(dres)
         for (darg, ptr) in zip(dargs, (func, prob, sensealg, u0, p, args...))
             if ptr isa Enzyme.Const
