@@ -199,12 +199,12 @@ end
        100ODE_DEFAULT_NORM(integrator.last_event_error, integrator.t)
 
         # If there was a previous event, utilize the derivative at the start to
-        # chose the previous sign. If the derivative is positive at tprev, then
+        # choose the previous sign. If the derivative is positive at tprev, then
         # we treat `prev_sign` as negative, and if the derivative is negative then we
         # treat `prev_sign` as positive, regardless of the positivity/negativity
         # of the true value due to it being =0 sans floating point issues.
 
-        # Only due this if the discontinuity did not move it far away from an event
+        # Only do this if the discontinuity did not move it far away from an event
         # Since near even we use direction instead of location to reset
 
         if callback.interp_points == 0
@@ -306,12 +306,12 @@ end
        100ODE_DEFAULT_NORM(integrator.last_event_error, integrator.t)
 
         # If there was a previous event, utilize the derivative at the start to
-        # chose the previous sign. If the derivative is positive at tprev, then
+        # choose the previous sign. If the derivative is positive at tprev, then
         # we treat `prev_sign` as negative, and if the derivative is negative then we
         # treat `prev_sign` as positive, regardless of the positivity/negativity
         # of the true value due to it being =0 sans floating point issues.
 
-        # Only due this if the discontinuity did not move it far away from an event
+        # Only do this if the discontinuity did not move it far away from an event
         # Since near even we use direction instead of location to reset
 
         if callback.interp_points == 0

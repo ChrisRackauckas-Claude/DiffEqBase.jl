@@ -286,7 +286,7 @@ Currently unused options include:
 This functionality is derived via the benchmarks in
 [SciMLBenchmarks.jl](https://github.com/SciML/SciMLBenchmarks.jl)
 
-#### SDE Specific Alghints
+#### SDE Specific Algorithm Hints
 
 * `:additive` - Denotes that the underlying SDE has additive noise.
 * `:stratonovich` - Denotes that the solution should adhere to the Stratonovich
@@ -468,7 +468,7 @@ explanations of the timestepping algorithms, see the
   - `CheckInit()`: Only checks that initial conditions are consistent, errors if not
   - `NoInit()`: Skip initialization completely (for when you know conditions are consistent)
   - `OverrideInit()`: Use problem's initialization_data (typically from ModelingToolkit)
-  - `BrownBasicInit()`: Brown's basic initialization algorithm for index-1 DAEs
+  - `BrownFullBasicInit()`: Brown's basic initialization algorithm for index-1 DAEs
   - `ShampineCollocationInit()`: Shampine's collocation initialization for general DAEs
   See the [DAE initialization documentation](https://docs.sciml.ai/DiffEqDocs/stable/features/dae_initialization/)
   for more details.

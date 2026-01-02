@@ -64,7 +64,7 @@ DOI: https://doi.org/10.1137/S1064827599355049
 
 This method uses collocation on the first two steps to find consistent initial
 conditions. It modifies both the differential and algebraic variables to satisfy
-the DAE constraints. This is more general than BrownBasicInit but may be more
+the DAE constraints. This is more general than BrownFullBasicInit but may be more
 expensive computationally.
 
 This method is useful when you need to modify all variables (both differential
